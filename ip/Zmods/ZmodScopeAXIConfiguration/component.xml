@@ -202,8 +202,8 @@
     <spirit:busInterface>
       <spirit:name>ExtCh1Calib</spirit:name>
       <spirit:displayName>ExtCh1Calib</spirit:displayName>
-      <spirit:busType spirit:vendor="natinst.com" spirit:library="user" spirit:name="ZmodScope_Calibration" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="natinst.com" spirit:library="user" spirit:name="ZmodScope_Calibration_rtl" spirit:version="1.0"/>
+      <spirit:busType spirit:vendor="digilent.com" spirit:library="user" spirit:name="ZmodScope_Calibration" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="digilent.com" spirit:library="user" spirit:name="ZmodScope_Calibration_rtl" spirit:version="1.0"/>
       <spirit:master/>
       <spirit:portMaps>
         <spirit:portMap>
@@ -243,8 +243,8 @@
     <spirit:busInterface>
       <spirit:name>ExtCh2Calib</spirit:name>
       <spirit:displayName>ExtCh2Calib</spirit:displayName>
-      <spirit:busType spirit:vendor="natinst.com" spirit:library="user" spirit:name="ZmodScope_Calibration" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="natinst.com" spirit:library="user" spirit:name="ZmodScope_Calibration_rtl" spirit:version="1.0"/>
+      <spirit:busType spirit:vendor="digilent.com" spirit:library="user" spirit:name="ZmodScope_Calibration" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="digilent.com" spirit:library="user" spirit:name="ZmodScope_Calibration_rtl" spirit:version="1.0"/>
       <spirit:master/>
       <spirit:portMaps>
         <spirit:portMap>
@@ -1114,8 +1114,8 @@
       <xilinx:displayName>Zmod Scope AXI Configuration</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:vendorDisplayName>Digilent</xilinx:vendorDisplayName>
-      <xilinx:coreRevision>13</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-04-15T14:55:00Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>14</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2025-12-30T17:43:59Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@54474098_ARCHIVE_LOCATION">d:/eclypse-wave-gen/zmod-scope-axi-configuration/zmod-scope-axi-configuration.srcs</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@893e2c5_ARCHIVE_LOCATION">d:/eclypse-wave-gen/zmod-scope-axi-configuration/zmod-scope-axi-configuration.srcs</xilinx:tag>
@@ -1265,8 +1265,8 @@
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="27b5553b"/>
+      <xilinx:xilinxVersion>2025.1</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="09bb6643"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="0e8e815f"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ed1f29f3"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="d1c9b2c4"/>
