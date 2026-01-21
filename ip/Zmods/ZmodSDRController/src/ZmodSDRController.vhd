@@ -103,6 +103,7 @@ entity ZmodSDRController is
         sPLL_LockClockGen : out std_logic;
         -- MMCM output clock buffered by a BUFG
         ZmodDcoClkOut : out std_logic;
+        ZmodDcoClkOut90 : out std_logic;
         sZmodDcoPLL_Lock : out std_logic;
         -- Asynchronous reset signal (negative polarity).   
         aRst_n : in std_logic;
@@ -210,6 +211,7 @@ architecture Behavioral of ZmodSDRController is
     signal adoRst_n, asRst_n, adoRst, asRst, aRst, aiRst : std_logic;
     --PLL&Clock signals
     signal DcoClkOut : std_logic;
+    signal DcoClkOut90 : std_logic;
     signal ZmodDcoPostBufg, ZmodDcoPostBufio : std_logic;
     signal ZmodDcoPLL_LockState : std_logic;
     --Initialization complete flags
@@ -372,6 +374,7 @@ begin
             adoRst => adoRst,
             DcoClkIn => DcoClkIn,
             DcoClkOut => DcoClkOut,
+            DcoClkOut90 => DcoClkOut90,
             rDcoMMCM_LockState => sZmodDcoPLL_Lock,
             doEnableAcquisition => doEnableAcquisition,
             diADC_Data => diZmodSDR_Data,
@@ -381,24 +384,19 @@ begin
         );
         
         ZmodDcoClkOut <= DcoClkOut;
+        ZmodDcoClkOut90 <= DcoClkOut90;
 
     ------------------------------------------------------------------------------------------
     -- Clock Generator CLKIN (PRIREF)
     ------------------------------------------------------------------------------------------ 
 
-    InstCG_ClkODDR : ODDR
-        generic map(
-            DDR_CLK_EDGE => "OPPOSITE_EDGE", -- "OPPOSITE_EDGE" or "SAME_EDGE" 
-            INIT => '0',   -- Initial value for Q port ('1' or '0')
-            SRTYPE => "ASYNC") -- Reset Type ("ASYNC" or "SYNC")
+    InstCG_ClkODDR : ODDRE1
         port map (
             Q => OddrClk,   -- 1-bit DDR output
             C => ClockGenPriRefClk,    -- 1-bit clock input
-            CE => '1',  -- 1-bit clock enable input
             D1 => '1',  -- 1-bit data input (positive edge)
             D2 => '0',  -- 1-bit data input (negative edge)
-            R => aiRst,    -- 1-bit reset input
-            S => '0'     -- 1-bit set input
+            SR => '0'     -- 1-bit set input
         );
 
     InstCG_ClkOBUFDS : OBUFDS

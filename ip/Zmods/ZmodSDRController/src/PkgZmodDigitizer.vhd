@@ -1287,31 +1287,31 @@ end function;
 function IDDR_ClockPhase(SamplingPeriod:real) 
         return real is
    begin
+      --800MHz to 400MHz
+      if ((SamplingPeriod > 1.25) and (SamplingPeriod <= 2.5)) then
+         return 112.5;
       --400MHz to 200MHz
-      if ((SamplingPeriod > 2.5) and (SamplingPeriod <= 5.0)) then
-         return 120.0;
-      --200MHz to 111MHz 
-      elsif ((SamplingPeriod > 5.0) and (SamplingPeriod <= 9.0)) then   
-         return 127.5;
-	  --111MHz to 100MHz 
-      elsif ((SamplingPeriod > 9.0) and (SamplingPeriod <= 10.0)) then   
-         return 120.0;
-      --100MHz to 50MHz    
+      elsif ((SamplingPeriod > 2.5) and (SamplingPeriod <= 5.0)) then
+         return 123.75;
+      --200MHz to 100MHz
+      elsif ((SamplingPeriod > 5.0) and (SamplingPeriod <= 10.0)) then
+         return 123.75;
+      --100MHz to 50MHz
       elsif ((SamplingPeriod > 10.0) and (SamplingPeriod <= 20.0)) then
          return 123.75;
-      --50MHz to 25MHz 
+      --50MHz to 25MHz
       elsif ((SamplingPeriod > 20.0) and (SamplingPeriod <= 40.0)) then
-         return 125.625;       
-      --25MHz to 12.5MHz 
+         return 125.15625;
+      --25MHz to 12.5MHz
       elsif ((SamplingPeriod > 40.0) and (SamplingPeriod <= 80.0)) then
-         return 125.625;       
-      --12.5MHz to 10MHz 
+         return 125.859375;
+      --12.5MHz to 10MHz
       elsif (SamplingPeriod > 80.0) then
-         return 125.859375; 
-      --Out of specifications;               
+         return 126.0;
+      --Out of specifications;
       else
          return 1.0;
-      end if;          
+      end if;
 end function;
 
 function DCO_ClockPeriod(CDCE_FreqSel:integer) 
@@ -1323,7 +1323,7 @@ function DCO_ClockPeriod(CDCE_FreqSel:integer)
       --50MHz
       elsif (CDCE_FreqSel = 1) then   
          return 20000;--Clock Period in ps
-	  --80MHz 
+      --80MHz
       elsif (CDCE_FreqSel = 2) then   
          return 12500;--Clock Period in ps
       --100MHz   
